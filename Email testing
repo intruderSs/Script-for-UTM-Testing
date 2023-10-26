@@ -1,10 +1,13 @@
-Steps to follow:
+/* Steps to follow:
 1. Copy the Below Code and paste into the compiler.
 2. Change the Expected Params as mentioned on the story.
 3. Copy each and every links which you kept somewhere and paste inside the array "linksToValidate" like 'link1', 'link2' and so on.
 4. Click on the Run Button.
 5. If any particular utm parameter is invalid in any of the link, you will get a prompt as ==> "Invalid &&utm_parameter_name&& for &&email_term&&".
-6. If everything is perfect then you will get a prompt as ==>> "Everything seems perfect for &&utm_term&&"
+6. If everything is perfect then you will get a prompt as ==>> "Everything seems perfect for &&utm_term&&" */
+
+
+//Code starts here
 
 
 // Expected UTM parameters
