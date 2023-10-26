@@ -1,0 +1,49 @@
+Steps to follow:
+1. Copy the Below Code and paste into the compiler.
+2. Change the Expected Params as mentioned on the story.
+3. Copy each and every links which you kept somewhere and paste inside the array "linksToValidate" like 'link1', 'link2' and so on.
+4. Click on the Run Button.
+5. If any particular utm parameter is invalid in any of the link, you will get a prompt as ==> "Invalid &&utm_parameter_name&& for &&email_term&&".
+6. If everything is perfect then you will get a prompt as ==>> "Everything seems perfect for &&utm_term&&"
+
+
+// Expected UTM parameters
+const expectedUtmParams = {
+  utm_source: 'sfmc',
+  utm_medium: 'email',
+  utm_campaign: 'DPR-IP-warming',
+  utm_EmailName: 'DPR_B2C_Halloween_Oct_2023',
+  Platform_Source: 'DPR',
+  Date: '10/25/2023',
+  utm_id: '162753',
+  sfmc_id: '14537630'
+};
+
+// Array of Links
+const linksToValidate = [
+  'https://www.dubaiparksandresorts.com/en?utm_source=sfmc&utm_medium=email&utm_campaign=DPR-IP-warming&utm_term=BookNow_Halloween&utm_EmailName=DPR_B2C_Halloween_Oct_2023&Platform_Source=DPR&Date=10/25/2023&utm_id=162753&sfmc_id=14537630',
+  'https://www.dubaiparksandresorts.com/en?utm_source=sfmc&utm_medium=email&utm_campaign=DPR-IP-warming&utm_term=HeaderImage&utm_EmailName=DPR_B2C_Halloween_Oct_2023&Platform_Source=DPR&Date=10/25/2023&utm_id=162753&sfmc_id=14537630'
+];
+
+// Function to validate UTM parameters
+function validateUtmParameters(link) {
+  const url = new URL(link);
+  const searchParams = Object.fromEntries(url.searchParams.entries());
+
+  for (const param in expectedUtmParams) {
+    if (searchParams[param] !== expectedUtmParams[param]) {
+     console.log(`Invalid ${param} for ${searchParams.utm_term}`);
+    }
+  }
+  return true;
+}
+
+// Code to Validate each link
+linksToValidate.forEach(link => {
+  const isValid = validateUtmParameters(link);
+  if (isValid) {
+      const url = new URL(link);
+      const searchParams = Object.fromEntries(url.searchParams.entries());
+      console.log(`Everything seems perfect for "${searchParams.utm_term}"`);
+  }
+});
