@@ -36,6 +36,7 @@ function validateUtmParameters(link) {
   for (const param in expectedUtmParams) {
     if (searchParams[param] !== expectedUtmParams[param]) {
      console.log(`Invalid ${param} for ${searchParams.utm_term}`);
+       return false;
     }
   }
   return true;
